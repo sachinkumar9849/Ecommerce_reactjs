@@ -1,39 +1,44 @@
 import styled from "styled-components";
 
 const Contact = () => {
-  const Wrapper = styled.section`
-    padding: 9rem 0 5rem 0;
-    text-align: center;
+  const Wrapper = styled.section``;
 
-    .container {
-      margin-top: 6rem;
-
-      .contact-form {
-        max-width: 50rem;
-        margin: auto;
-
-        .contact-inputs {
-          display: flex;
-          flex-direction: column;
-          gap: 3rem;
-
-          input[type="submit"] {
-            cursor: pointer;
-            transition: all 0.2s;
-
-            &:hover {
-              background-color: ${({ theme }) => theme.colors.white};
-              border: 1px solid ${({ theme }) => theme.colors.btn};
-              color: ${({ theme }) => theme.colors.btn};
-              transform: scale(0.9);
-            }
-          }
-        }
-      }
-    }
-  `;
-
-  return <Wrapper></Wrapper>;
+  return (
+    <Wrapper>
+      <div className="container">
+        <div className="row">
+          <div className="col-6 mx-auto mt-5">
+            <form action="https://formspree.io/f/xyyanear" method="POST">
+              <div className="row">
+                <div className="col-12 mb-3">
+                  <input
+                    type="text"
+                    name="name"
+                    className="form-control"
+                    placeholder="First name"
+                  />
+                </div>
+                <div className="col-12 mb-3">
+                  <input
+                    type="email"
+                    name="email"
+                    className="form-control"
+                    placeholder="Email"
+                  />
+                </div>
+                <div className="col-12 mb-3">
+                  <textarea placeholder="Message" form-control></textarea>
+                </div>
+                <div className="col-12 mb-3">
+                  <button type="submit">Send</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </Wrapper>
+  );
 };
 
 export default Contact;

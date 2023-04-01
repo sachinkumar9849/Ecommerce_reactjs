@@ -1,6 +1,13 @@
+import React from 'react'
 import styled from "styled-components";
 
-return <Wrapper></Wrapper>;
+const SingleProduct = () => {
+  return (
+    <div>SingleProduct</div>
+  )
+}
+
+
 
 const Wrapper = styled.section`
   .container {
