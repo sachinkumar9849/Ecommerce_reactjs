@@ -3,6 +3,7 @@ import styled from "styled-components";
 import Footer from "./components/Footer";
 import HeroSection from "./components/HeroSection";
 import Services from "./components/Services";
+import FeaturedProduct from "./components/FeaturedProduct";
 
 const Home = () => {
   const data ={
@@ -13,6 +14,7 @@ const Home = () => {
     <Wrapper className="container">
       <HeroSection myData={data}/>
       <Services/>
+      <FeaturedProduct/>
       <Footer/>
     </Wrapper>
   );

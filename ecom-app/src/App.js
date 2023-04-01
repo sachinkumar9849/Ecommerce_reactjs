@@ -7,7 +7,7 @@ import SingleProduct from "./SingleProduct";
 import Products from "./Products";
 import Cart from "./Cart";
 import ErrorPage from "./ErrorPage";
-import { GlobalStyle } from "./GlobalStyle";
+// import { GlobalStyle } from "./GlobalStyle";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.min.js";
 import { ThemeProvider } from "styled-components";
