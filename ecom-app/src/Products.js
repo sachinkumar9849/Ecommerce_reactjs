@@ -6,12 +6,9 @@ const Products = () => {
     <Wrapper>
       <h1>Product</h1>
     </Wrapper>
-
   );
 };
 
-const Wrapper = styled.section`
-  
-`;
+const Wrapper = styled.section``;
 
 export default Products;
