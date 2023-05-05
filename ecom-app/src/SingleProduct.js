@@ -46,13 +46,13 @@ const SingleProduct = () => {
         <div className="container">
           <div className="row">
             <div className="col-lg-6">
-              <MainImage img={image}/>
+              <MainImage img={image} />
             </div>
             <div className="col-lg-6">
               <div className="product_title">
                 <h2>{name}</h2>
-                <Stars stars={stars}reviews={reviews}/>
-                
+                <Stars stars={stars} reviews={reviews} />
+
                 <p>
                   MRP:
                   <del>
@@ -72,7 +72,7 @@ const SingleProduct = () => {
                 </p>
               </div>
               <hr />
-              {stock > 0 && <AddTocart product ={singleProduct}/>}
+              {stock > 0 && <AddTocart product={singleProduct} />}
             </div>
           </div>
         </div>

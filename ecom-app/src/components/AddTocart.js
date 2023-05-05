@@ -8,10 +8,10 @@ const AddTocart = ({ product }) => {
   const { id, colors, stock } = product;
   const [color, setColor] = useState(colors[2]);
 
-  const [amount, setAmount] = useState(1);
+  const [amount, setAmount] = useState(0);
 
   const setDecrease = () => {
-    amount > 1 ? setAmount(amount - 1) : setAmount(1);
+    amount > 1 ? setAmount(amount - 1) : setAmount(0);
   };
   const setIncrease = () => {
     amount < stock ? setAmount(amount + 1) : setAmount(stock);
