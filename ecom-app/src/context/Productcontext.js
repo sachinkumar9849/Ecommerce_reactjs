@@ -11,9 +11,9 @@ const initialState = {
   isLoading: false,
   isError: false,
   products: [],
-  featuredProduct: [], 
-  isSingleLoading:false,
-  singleProduct:{},
+  featuredProduct: [],
+  isSingleLoading: false,
+  singleProduct: {},
 };
 
 const AppProvider = ({ children }) => {
@@ -46,7 +46,9 @@ const AppProvider = ({ children }) => {
   }, []);
 
   return (
-    <AppContext.Provider value={{ ...state ,getSingleProduc}}>{children}</AppContext.Provider>
+    <AppContext.Provider value={{ ...state, getSingleProduc }}>
+      {children}
+    </AppContext.Provider>
   );
 };
 

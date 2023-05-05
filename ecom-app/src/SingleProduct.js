@@ -1,13 +1,85 @@
-import React from 'react'
+import React, { useEffect } from "react";
 import styled from "styled-components";
+import { useParams } from "react-router-dom";
+import { useProductContext } from "./context/Productcontext";
+import PageNevigation from "./components/PageNevigation";
+import FormatPrice from "./components/Helpers/FormatPrice";
+import MainImage from "./components/MainImage";
+import Stars from "./components/Stars";
+import AddTocart from "./components/AddTocart";
+
+const API = "https://api.pujakaitem.com/api/products";
 
 const SingleProduct = () => {
+  const { getSingleProduc, isSingleLoading, singleProduct } =
+    useProductContext();
+
+  const { id } = useParams();
+  const {
+    id: alias,
+    name,
+    company,
+    price,
+    description,
+    category,
+    stock,
+    stars,
+    reviews,
+    image,
+  } = singleProduct;
+
+  useEffect(() => {
+    getSingleProduc(`${API}?id=${id}`);
+  }, []);
+
+  if (isSingleLoading) {
+    return (
+      <>
+        <h1>Loading....</h1>
+      </>
+    );
+  }
   return (
-    <div>SingleProduct</div>
-  )
-}
-
-
+    <div>
+      <PageNevigation title={name} />
+      <section>
+        <div className="container">
+          <div className="row">
+            <div className="col-lg-6">
+              <MainImage img={image}/>
+            </div>
+            <div className="col-lg-6">
+              <div className="product_title">
+                <h2>{name}</h2>
+                <Stars stars={stars}reviews={reviews}/>
+                
+                <p>
+                  MRP:
+                  <del>
+                    <FormatPrice price={price + 250000} />
+                  </del>
+                </p>
+                <p>
+                  Deal of the day <FormatPrice price={price} />
+                </p>
+                <p>{description}</p>
+                <p>Available: {stock > 0 ? "In stock" : "Out stock"}</p>
+                <p>
+                  Id <strong>{id}</strong>
+                </p>
+                <p>
+                  Brand<strong> {company}</strong>
+                </p>
+              </div>
+              <hr />
+              {stock > 0 && <AddTocart product ={singleProduct}/>}
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  );
+};
 
 const Wrapper = styled.section`
   .container {
