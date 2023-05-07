@@ -9,7 +9,7 @@ const ListView = ({ products }) => {
         <div class="row">
           <div className="col-12">
             {products.map((curElem) => {
-              const { id, name, image, price, category,description } = curElem;
+              const { id, name, image, price, category, description } = curElem;
               return (
                 <>
                   <div className="row mb-4">
@@ -26,11 +26,14 @@ const ListView = ({ products }) => {
                     <div className="col-lg-6">
                       <div className="card-body">
                         <h5 className="card-title">{name}</h5>
-                        <p className="card-text"> {<FormatPrice price={price} />} </p>
+                        <p className="card-text">
+                          {" "}
+                          {<FormatPrice price={price} />}{" "}
+                        </p>
                         <strong>{category}</strong>
-                        <p>{description.slice(0,100)}...</p>
+                        <p>{description.slice(0, 100)}...</p>
                         <NavLink to={`/singleproduct/${id}`}>
-                            <button className="btn btn-info">Read more</button>
+                          <button className="btn btn-info">Read more</button>
                         </NavLink>
                       </div>
                     </div>

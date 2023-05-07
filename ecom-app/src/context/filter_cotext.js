@@ -8,6 +8,7 @@ const initialState = {
   filter_product: [],
   all_product: [],
   set_giredview: true,
+  sorting_value: "lowest",
 };
 
 export const FilterContextProvider = ({ children }) => {
@@ -19,13 +20,28 @@ export const FilterContextProvider = ({ children }) => {
   const setGiredView = () => {
     return dispatch({ type: "SET_GIREDVIEW" });
   };
+  // start LIST view
+  const setListView = () => {
+    return dispatch({ type: "SET_LIST_VIEW" });
+  };
+  // shortin price function
+  const shorting = (event) => {
+    let userValue = event.target.value;
+    dispatch({ type: "GET_SHORT_VALUE",payload: userValue  });
+  };
+  // to short the product
+  useEffect(() => {
+    dispatch({ type: "SHORTING_PRODUCT"});
+  }, [products, state.sorting_value]);
 
   useEffect(() => {
     dispatch({ type: "LOAD_FILTER_PRDUCT", payload: products });
   }, [products]);
 
   return (
-    <FilterContext.Provider value={{ ...state, setGiredView }}>
+    <FilterContext.Provider
+      value={{ ...state, setGiredView, setListView, shorting }}
+    >
       {children}
     </FilterContext.Provider>
   );

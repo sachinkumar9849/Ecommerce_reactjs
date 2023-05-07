@@ -1,3 +1,5 @@
-.active{
-    opacity: .4;
+button.active.shortBtn {
+    background: black;
+    color: white;
+    opacity: 1;
 }
